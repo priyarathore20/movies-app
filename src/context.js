@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-import useFetch from './useFetch';
+// import useFetch from './useFetch';
 
-const API_URL = 'http://www.omdbapi.com/?apikey=a77ea526&';
+const API_URL =
+  'http://www.omdbapi.com/?apikey={process.env.REACT_APP_API_KEY}=Titanic';
 const AppContext = React.createContext();
 
 // we are getting the children and that is app component in our case
 const AppProvider = ({ children }) => {
-  const [query, setQuery] = useState('hacker');
+  // const [query, setQuery] = useState('hacker');
   const [isloading, setIsLoading] = useState(true);
-  const [Movies, setMovies] = useState([]);
+  const [movie, setMovies] = useState([]);
   const [isError, setisError] = useState({ show: false, msg: '' });
 
   const getMovies = async (url) => {
@@ -20,7 +21,7 @@ const AppProvider = ({ children }) => {
         setIsLoading(false);
         setMovies(data.Search);
       } else {
-        setisError({ show: true, msg: data.Error });
+        setisError({ show: true, msg: data.error });
       }
     } catch (error) {
       console.log(error);
@@ -33,9 +34,7 @@ const AppProvider = ({ children }) => {
   // const { isLoading, isError, Movie } = useFetch(`&s=${query}`);
 
   return (
-    <AppContext.Provider
-      value={{ query, Movies, setQuery, isloading, isError }}
-    >
+    <AppContext.Provider value={{ movie, isloading, isError }}>
       {children}
     </AppContext.Provider>
   );
