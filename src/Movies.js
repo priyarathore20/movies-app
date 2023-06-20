@@ -25,7 +25,7 @@ const Movie = () => {
                   <div className="card">
                     <div className="card-info">
                       <h2>
-                        {movieName.length > 13
+                        {movieName.length > 15
                           ? `${movieName}...`
                           : movieName}
                       </h2>

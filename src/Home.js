@@ -1,4 +1,4 @@
-import Movie from "./Movie";
+import Movie from "./Movies";
 import Search from "./Search";
 
 const Home = () => {

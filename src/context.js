@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 // import useFetch from './useFetch';
 
-const API_URL =
-  'http://www.omdbapi.com/?apikey={process.env.REACT_APP_API_KEY}=Titanic';
+const API_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}=Titanic`;
 const AppContext = React.createContext();
 
 // we are getting the children and that is app component in our case
